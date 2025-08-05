@@ -5,343 +5,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flashcards de Filosofia</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-        :root {
-            --cor-primaria: #2c3e50;
-            --cor-secundaria: #ecf0f1;
-            --cor-terciaria: #34495e;
-            --cor-destaque: #e74c3c;
-            --cor-texto: #ffffff;
-            --cor-sombra: rgba(0, 0, 0, 0.2);
-        }
-
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--cor-secundaria);
-            color: var(--cor-primaria);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            background-color: var(--cor-primaria);
-            color: var(--cor-texto);
             padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
         }
 
         main {
-            flex-grow: 1;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         #container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px;
-            max-width: 1200px;
-            width: 100%;
+            padding: 20px 0;
         }
 
         .cartao {
-            background-color: var(--cor-primaria);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px var(--cor-sombra);
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            cursor: pointer;
-            perspective: 1000px;
-            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .cartao:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px var(--cor-sombra);
-        }
-        
-        .cartao.girado {
-            transform: rotateY(180deg);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
 
-        .cartao__conteudo {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-            color: var(--cor-texto);
-            transition: all 0.6s ease;
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-            position: absolute;
-        }
-        
-        .cartao__conteudo.verso {
-            transform: rotateY(180deg);
+        .cartao h3 {
+            color: #4a90e2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
         }
 
-        .cartao__conteudo h3 {
-            background-color: var(--cor-destaque);
-            color: var(--cor-texto);
-            padding: 8px 15px;
-            border-radius: 20px;
-            margin-bottom: 15px;
-            font-size: 0.9em;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        .cartao__conteudo__pergunta,
-        .cartao__conteudo__resposta {
+        .cartao__conteudo__pergunta {
             font-size: 1.2em;
             font-weight: 600;
-            padding: 10px;
+            margin: 20px 0 15px 0;
+            color: #555;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .cartao__conteudo__resposta {
-            font-weight: 400;
-            display: none;
-            text-align: center;
-        }
-        
-        .cartao.girado .cartao__conteudo__pergunta {
-            display: none;
-        }
-        
-        .cartao.girado .cartao__conteudo__resposta {
-            display: block;
+            font-size: 1em;
+            font-style: italic;
+            color: #777;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         footer {
-            background-color: var(--cor-terciaria);
-            color: var(--cor-texto);
+            margin-top: 50px;
+            padding: 30px;
             text-align: center;
-            padding: 15px;
-            margin-top: auto;
+            background: linear-gradient(90deg, #4a90e2 0%, #8e44ad 100%);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15);
         }
-        
+
         footer p {
             margin: 0;
-            font-size: 0.9em;
+            font-weight: 500;
+            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Flashcards de Filosofia</h1>
-    </header>
-    
     <main>
+        <h1>Flashcards de Filosofia</h1>
+        <p>Aprenda conceitos básicos de filosofia de forma rápida e divertida!</p>
+
         <section id="container">
             <article class="cartao">
-                <div class="cartao__conteudo frente">
+                <div class="cartao__conteudo">
+                    <h3>Filosofia</h3>
+                    <div class="cartao__conteudo__pergunta">O que significa a palavra "filosofia"?</div>
+                    <div class="cartao__conteudo__resposta">Amor à sabedoria.</div>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
                     <h3>Filosofia Antiga</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        Quem foi o autor da alegoria da caverna?
-                    </div>
-                </div>
-                <div class="cartao__conteudo verso">
-                    <h3>Filosofia Antiga</h3>
-                    <div class="cartao__conteudo__resposta">
-                        Platão, em sua obra "A República".
-                    </div>
+                    <div class="cartao__conteudo__pergunta">Qual foi o método de ensino de Sócrates?</div>
+                    <div class="cartao__conteudo__resposta">A maiêutica (arte de fazer perguntas).</div>
                 </div>
             </article>
 
             <article class="cartao">
-                <div class="cartao__conteudo frente">
+                <div class="cartao__conteudo">
                     <h3>Metafísica</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        O que é a "substância" para Aristóteles?
-                    </div>
-                </div>
-                <div class="cartao__conteudo verso">
-                    <h3>Metafísica</h3>
-                    <div class="cartao__conteudo__resposta">
-                        É a essência de um ser, aquilo que o faz ser o que é.
-                    </div>
-                </div>
-            </article>
-            
-            <article class="cartao">
-                <div class="cartao__conteudo frente">
-                    <h3>Iluminismo</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        Qual o famoso lema de Immanuel Kant sobre o Iluminismo?
-                    </div>
-                </div>
-                <div class="cartao__conteudo verso">
-                    <h3>Iluminismo</h3>
-                    <div class="cartao__conteudo__resposta">
-                        "Sapere aude" (ouse saber).
-                    </div>
+                    <div class="cartao__conteudo__pergunta">O que é a Teoria das Ideias de Platão?</div>
+                    <div class="cartao__conteudo__resposta">A teoria de que o mundo material é uma cópia imperfeita de um mundo de Ideias perfeitas.</div>
                 </div>
             </article>
 
             <article class="cartao">
-                <div class="cartao__conteudo frente">
-                    <h3>Existencialismo</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        "A existência precede a essência" é um princípio de qual corrente filosófica?
-                    </div>
-                </div>
-                <div class="cartao__conteudo verso">
-                    <h3>Existencialismo</h3>
-                    <div class="cartao__conteudo__resposta">
-                        Do existencialismo, popularizado por Jean-Paul Sartre.
-                    </div>
-                </div>
-            </article>
-            
-            <article class="cartao">
-                <div class="cartao__conteudo frente">
+                <div class="cartao__conteudo">
                     <h3>Ética</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        O que é o "imperativo categórico" de Kant?
-                    </div>
+                    <div class="cartao__conteudo__pergunta">Qual a diferença entre ética e moral?</div>
+                    <div class="cartao__conteudo__resposta">Ética é o estudo teórico dos princípios, enquanto moral é o conjunto prático de normas e costumes.</div>
                 </div>
-                <div class="cartao__conteudo verso">
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Lógica</h3>
+                    <div class="cartao__conteudo__pergunta">Quem é considerado o pai da Lógica?</div>
+                    <div class="cartao__conteudo__resposta">Aristóteles.</div>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Existencialismo</h3>
+                    <div class="cartao__conteudo__pergunta">Qual a principal ideia do existencialismo?</div>
+                    <div class="cartao__conteudo__resposta">"A existência precede a essência", ou seja, o ser humano se define por suas escolhas.</div>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Epistemologia</h3>
+                    <div class="cartao__conteudo__pergunta">O que é o empirismo?</div>
+                    <div class="cartao__conteudo__resposta">Corrente filosófica que defende que o conhecimento vem da experiência sensorial.</div>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Política</h3>
+                    <div class="cartao__conteudo__pergunta">Quem escreveu "A República"?</div>
+                    <div class="cartao__conteudo__resposta">Platão.</div>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Filosofia Moderna</h3>
+                    <div class="cartao__conteudo__pergunta">Qual a frase famosa de René Descartes?</div>
+                    <div class="cartao__conteudo__resposta">"Penso, logo existo."</div>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Estética</h3>
+                    <div class="cartao__conteudo__pergunta">O que a estética estuda?</div>
+                    <div class="cartao__conteudo__resposta">O belo, a arte e o gosto.</div>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Filosofia Medieval</h3>
+                    <div class="cartao__conteudo__pergunta">Qual a principal característica da filosofia medieval?</div>
+                    <div class="cartao__conteudo__resposta">A relação e o conflito entre a fé e a razão.</div>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
                     <h3>Ética</h3>
-                    <div class="cartao__conteudo__resposta">
-                        É uma lei moral universal que devemos seguir, independentemente das consequências.
-                    </div>
-                </div>
-            </article>
-            
-            <article class="cartao">
-                <div class="cartao__conteudo frente">
-                    <h3>Racionalismo</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        Quem disse "Cogito, ergo sum" ("Penso, logo existo")?
-                    </div>
-                </div>
-                <div class="cartao__conteudo verso">
-                    <h3>Racionalismo</h3>
-                    <div class="cartao__conteudo__resposta">
-                        René Descartes.
-                    </div>
-                </div>
-            </article>
-
-            <article class="cartao">
-                <div class="cartao__conteudo frente">
-                    <h3>Empirismo</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        Qual a ideia central do empirismo?
-                    </div>
-                </div>
-                <div class="cartao__conteudo verso">
-                    <h3>Empirismo</h3>
-                    <div class="cartao__conteudo__resposta">
-                        O conhecimento deriva da experiência sensorial.
-                    </div>
-                </div>
-            </article>
-
-            <article class="cartao">
-                <div class="cartao__conteudo frente">
-                    <h3>Filosofia Política</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        Qual é o conceito de "vontade geral" de Jean-Jacques Rousseau?
-                    </div>
-                </div>
-                <div class="cartao__conteudo verso">
-                    <h3>Filosofia Política</h3>
-                    <div class="cartao__conteudo__resposta">
-                        A vontade coletiva do povo, que busca o bem comum.
-                    </div>
-                </div>
-            </article>
-            
-            <article class="cartao">
-                <div class="cartao__conteudo frente">
-                    <h3>Ceticismo</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        O que é ceticismo?
-                    </div>
-                </div>
-                <div class="cartao__conteudo verso">
-                    <h3>Ceticismo</h3>
-                    <div class="cartao__conteudo__resposta">
-                        A doutrina filosófica que questiona a capacidade humana de atingir certezas absolutas.
-                    </div>
-                </div>
-            </article>
-
-            <article class="cartao">
-                <div class="cartao__conteudo frente">
-                    <h3>Filosofia Oriental</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        O que significa o conceito de "Tao" na filosofia chinesa?
-                    </div>
-                </div>
-                <div class="cartao__conteudo verso">
-                    <h3>Filosofia Oriental</h3>
-                    <div class="cartao__conteudo__resposta">
-                        O "caminho" ou "fluxo" do universo, a ordem natural das coisas.
-                    </div>
-                </div>
-            </article>
-
-            <article class="cartao">
-                <div class="cartao__conteudo frente">
-                    <h3>Niilismo</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        Qual o principal argumento do niilismo de Friedrich Nietzsche?
-                    </div>
-                </div>
-                <div class="cartao__conteudo verso">
-                    <h3>Niilismo</h3>
-                    <div class="cartao__conteudo__resposta">
-                        A "morte de Deus", que leva à perda de valores e sentido na vida.
-                    </div>
-                </div>
-            </article>
-
-            <article class="cartao">
-                <div class="cartao__conteudo frente">
-                    <h3>Existencialismo</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        O que é a "liberdade radical" para Sartre?
-                    </div>
-                </div>
-                <div class="cartao__conteudo verso">
-                    <h3>Existencialismo</h3>
-                    <div class="cartao__conteudo__resposta">
-                        A ideia de que somos totalmente responsáveis por nossas escolhas, sem desculpas.
-                    </div>
+                    <div class="cartao__conteudo__pergunta">O que é o utilitarismo?</div>
+                    <div class="cartao__conteudo__resposta">Teoria que busca a maior felicidade para o maior número de pessoas.</div>
                 </div>
             </article>
         </section>
     </main>
 
     <footer>
-        <p>Criado com base no projeto da Alura</p>
+        <p>Projeto de estudo<p>
     </footer>
-    
-    <script>
-        const cartoes = document.querySelectorAll('.cartao');
-        cartoes.forEach(cartao => {
-            cartao.addEventListener('click', () => {
-                cartao.classList.toggle('girado');
-            });
-        });
-    </script>
 </body>
 </html>
